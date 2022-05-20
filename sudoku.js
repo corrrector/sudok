@@ -24,7 +24,7 @@ function isSolved(board) {
     return board2.map((el) => el.reduce((acc, el) => acc + el)).every((el) => el === 45);
   }
   function allSum(board) {
-    return board2.map((el) => el.reduce((acc, el) => acc + el))
+    return board.map((el) => el.reduce((acc, el) => acc + el))
       .reduce((acc, el) => acc + el) === 405;
   }
   return (gorizontSum(board) && verticalSum(board2) && allSum(board))
