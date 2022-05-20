@@ -4,7 +4,12 @@
 // your solver has tried to solve it.
 // How you represent your board is up to you!
 function solve(boardString) {
-  console.log('first changes');
+  const arr = boardString.split('').map((el) => (el === '-' ? 0 : +el));
+  const board = [];
+  for (let i = 0; i < 81; i += 9) {
+    board.push(arr.slice(i, i + 9));
+  }
+  return board;
 }
 
 // Returns a boolean indicating whether
@@ -12,7 +17,6 @@ function solve(boardString) {
 // The input board will be in whatever
 // form `solve` returns.
 function isSolved(board) {
-
 }
 
 // Takes in a board in some form and
@@ -21,7 +25,6 @@ function isSolved(board) {
 // The input board will be in whatever
 // form `solve` returns.
 function prettyBoard(board) {
-
 }
 
 // Exports all the functions to use them in another file.
