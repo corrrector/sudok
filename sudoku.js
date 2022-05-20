@@ -20,47 +20,47 @@ function solve(boardString) {
     return 'end';
   }
   function tripleСheck(board, cord, n) {
-    let [x, y] = cord
+    const [x, y] = cord;
     function vertical(board) {
-      for (let i = 0; i < 9; i ++) {
+      for (let i = 0; i < 9; i++) {
         if (board[i][x] === n) {
-            return false;
+          return false;
         }
+      }
+      return true;
     }
-  return true
-  }
     function horizontal(board) {
-      for (let i = 0; i < 9; i ++) {
+      for (let i = 0; i < 9; i++) {
         if (board[y][i] === n) {
-            return false;
+          return false;
         }
+      }
+      return true;
     }
-  return true
-  }
 
     function cube() {
-   return true
+      return true;
     }
-  return vertical(board) && horizontal(board) && cube()
+    return vertical(board) && horizontal(board) && cube();
   }
   function test() {
     if (cord(board) === 'end') {
       return true;
     }
+    let c = cord(board)
     for (let i = 0; i < 81; i++) {
       const num = Math.floor(Math.random() * (10 - 1) + 1);
-      if (!tripleСheck) {
-        const [x, y] = cord;
+      if (!tripleСheck(board, c, num)) {
+        const [x, y] = c;
         board[x][y] = num;
-        if(test()) {
-          return true
+        if (test()) {
+          return true;
         }
-        sudoku[cord] = 0
-      }
-    
+        sudoku[cord] = 0;
       }
     }
   }
+
   test();
   return board;
 }
@@ -70,6 +70,7 @@ function solve(boardString) {
 // The input board will be in whatever
 // form `solve` returns.
 function isSolved(board) {
+  return true;
 }
 
 // Takes in a board in some form and
@@ -78,6 +79,7 @@ function isSolved(board) {
 // The input board will be in whatever
 // form `solve` returns.
 function prettyBoard(board) {
+  console.table(board);
 }
 
 // Exports all the functions to use them in another file.
