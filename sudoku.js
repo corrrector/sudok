@@ -3,7 +3,13 @@
 // something representing a board after
 // your solver has tried to solve it.
 // How you represent your board is up to you!
+
 function solve(boardString) {
+ isSolved
+  console.log('first changes');
+  return boardString;
+}
+
     let y = boardString.split("").map((el)=>el == '-' ? 0 : + el)
   let g = []
     for (let i=0; i<81; i+=9){
@@ -12,20 +18,41 @@ function solve(boardString) {
   return g
   }
 
+ devdream
 
 // Returns a boolean indicating whether
 // or not the provided board is solved.
 // The input board will be in whatever
 // form `solve` returns.
+
+
 function isSolved(board) {
+isSolved
+  let board2 = board.map((el, i) => board.map((el) => el[i]));
+  function gorizontSum(board) {
+    return board.map((el) => el.reduce((acc, el) => acc + el)).every((el) => el === 45);
+  }
+  function verticalSum(board2) {
+    return board2.map((el) => el.reduce((acc, el) => acc + el)).every((el) => el === 45);
+  }
+  function allSum(board) {
+    return board.map((el) => el.reduce((acc, el) => acc + el))
+      .reduce((acc, el) => acc + el) === 405;
+  }
+  return (gorizontSum(board) && verticalSum(board2) && allSum(board))
+};
+
+
 return true
 }
+devdream
 
 // Takes in a board in some form and
 // returns a String that's well formatted
 // for output to the screen.
 // The input board will be in whatever
 // form `solve` returns.
+
 function prettyBoard(board) {
 console.table(board)
 }
