@@ -18,6 +18,7 @@ function sudokuParse(content, puzzleNumber = 0) {
 }
 
 
+
 function readAndSolve(err, data) {
   if (err) {
     throw err;
