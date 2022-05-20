@@ -22,20 +22,10 @@ function solve(boardString) {
   function tripleСheck(board, cord, n) {
     const [x, y] = cord;
     function vertical(board) {
-      for (let i = 0; i < 9; i++) {
-        if (board[i][x] === n) {
-          return false;
-        }
-      }
-      return true;
+      return board.map((el, i) => board.map((el) => el[i]))[x].includes(n);
     }
     function horizontal(board) {
-      for (let i = 0; i < 9; i++) {
-        if (board[y][i] === n) {
-          return false;
-        }
-      }
-      return true;
+      return board[y].includes(n);
     }
 
     function cube() {
@@ -47,8 +37,9 @@ function solve(boardString) {
     if (cord(board) === 'end') {
       return true;
     }
-    let c = cord(board)
-    for (let i = 0; i < 81; i++) {
+    const c = cord(board);
+    for (let i = 1; i < 10; i++) {
+      // const num = i;
       const num = Math.floor(Math.random() * (10 - 1) + 1);
       if (!tripleСheck(board, c, num)) {
         const [x, y] = c;
@@ -56,11 +47,9 @@ function solve(boardString) {
         if (test()) {
           return true;
         }
-        sudoku[cord] = 0;
       }
     }
   }
-
   test();
   return board;
 }
