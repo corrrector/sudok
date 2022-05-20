@@ -5,9 +5,20 @@
 // How you represent your board is up to you!
 
 function solve(boardString) {
+ isSolved
   console.log('first changes');
   return boardString;
 }
+
+    let y = boardString.split("").map((el)=>el == '-' ? 0 : + el)
+  let g = []
+    for (let i=0; i<81; i+=9){
+   g.push(y.slice(i,i+9))
+    }
+  return g
+  }
+
+ devdream
 
 // Returns a boolean indicating whether
 // or not the provided board is solved.
@@ -16,6 +27,7 @@ function solve(boardString) {
 
 
 function isSolved(board) {
+isSolved
   let board2 = board.map((el, i) => board.map((el) => el[i]));
   function gorizontSum(board) {
     return board.map((el) => el.reduce((acc, el) => acc + el)).every((el) => el === 45);
@@ -31,6 +43,10 @@ function isSolved(board) {
 };
 
 
+return true
+}
+devdream
+
 // Takes in a board in some form and
 // returns a String that's well formatted
 // for output to the screen.
@@ -38,7 +54,7 @@ function isSolved(board) {
 // form `solve` returns.
 
 function prettyBoard(board) {
-
+console.table(board)
 }
 
 // Exports all the functions to use them in another file.
